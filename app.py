@@ -4,8 +4,8 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-from flask_bootstrap import Bootstrap5
-from flask_datepicker import datepicker
+# from flask_bootstrap import Bootstrap5
+# from flask_datepicker import datepicker
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 import plotly
 import plotly.express as px
@@ -21,8 +21,8 @@ engine    = create_engine("sqlite:///data/baby_names.db", echo=False)
 # Flask Setup
 #################################################
 app = Flask(__name__)
-bootstrap = Bootstrap5(app)
-date = datepicker(app)
+# bootstrap = Bootstrap5(app)
+# date = datepicker(app)
 
 #################################################
 # Flask Routes
