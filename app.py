@@ -35,7 +35,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/<year>")
+@app.route("/year/<year>")
 def year(year):
     """Fetch the Justice League character whose real_name matches
        the path variable supplied by the user, or a 404 if not."""
@@ -43,8 +43,15 @@ def year(year):
     # canonicalized = baby_name.replace(" ", "").lower()
 
     conn = engine.connect()
-    
+    year_num = int(year)
     baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
+    
+    baby_names_year = baby_names[baby_names['Year'] == year_num]
+
+    baby_names_sex = baby_names.loc[baby_names['Sex'] == 'Female']
+    
+    baby_names_sex 
+    #  = baby_names[baby_names['Year'] == year]
 
     """Return a list of all passenger names"""
     # Query all passengers
@@ -54,7 +61,7 @@ def year(year):
 
     # session.close()
 
-    fig = px.bar(baby_names, x='Name', y='Count', color='Sex', template="plotly_dark")
+    fig = px.bar(baby_names_year, y='Name', x='Count', color='Sex', orientation='h')
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     # for name in results:
@@ -63,8 +70,21 @@ def year(year):
         # if search_term == canonicalized:
         #     return jsonify(character)
 
-    return render_template("names.html", query = baby_names, graphJSON=graphJSON) 
+    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON) 
 
+
+@app.route("/name/<name>")
+def name(name):
+   conn = engine.connect()
+   baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
+
+   baby_names_names = baby_names[baby_names['Name'] == name]
+
+   fig = px.line(baby_names_names, y='Count', x='Year', color='Sex', orientation='h')
+
+   graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+
+   return render_template("names.html", query = baby_names, graphJSON=graphJSON) 
 
 # @app.route("/start", methods=['GET'])
 # def start():
