@@ -1,54 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        {% block head %}
+     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <meta charset="utf-8">
-  <title>Basic Map</title>
+        {% block styles %}
+           
+            {{ bootstrap.load_css() }}
+        {% endblock %}
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+        <title>Baby Names</title>
+        {% endblock %}
 
-  <!-- Leaflet JavaScript code -->
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
+        {% from 'bootstrap4/form.html' import render_field %}
 
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    </head>
+    <body class="">
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">What's Your Name?</a>
+            <button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon text-light"></span>
+            </button>
+            <!-- <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/precipitation">Precipitation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/stations">Stations</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/tobs">Tempurature Observations</a>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </nav>
 
-<body>
-  <!-- The div where we'll insert our map -->
-  <div id="map"></div>
+      <div class="row"><a class="btn btn-secondary btn-lg p-5" href="/start" role="button">Analysis by Year</a></div>
+      <div class="row"><a class="btn btn-success btn-lg p-5" href="/start_end" role="button">Analysis by Name</a></div>
+      
+      
 
-  <!-- JavaScript file -->
-  <script type="text/javascript" src="logic.js"></script>
-</body>
-
-
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+    </body>
 </html>
-
-
-<!--// Creating our initial map object:
-// We set the longitude, latitude, and starting zoom level.
-// This gets inserted into the div with an id of "map".
-var myMap = L.map("map", {
-  center: [45.52, -122.67],
-  zoom: 13
-});
-
-// Adding a tile layer (the background map image) to our map:
-// We use the addTo() method to add objects to our map.
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMap);
--->
-
-<!--
-  South East Region - 34.772076,-85.393342
-  South West Region - 37.329765,-108.787976
-  North East Region - 43.031757,-86.062019
-  North West Redion - 46.281479,-111.162607
--->
