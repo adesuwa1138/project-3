@@ -46,11 +46,13 @@ def year(year):
     year_num = int(year)
     baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
     
-    baby_names_year = baby_names[baby_names['Year'] == year_num]
+    baby_names_year = baby_names[baby_names['Year'] == year_num].sort_values(by='Count')
 
-    baby_names_sex = baby_names.loc[baby_names['Sex'] == 'Female']
+    baby_names_boy = baby_names_year.loc[baby_names_year['Sex'] == 'Male']
+    baby_names_girl = baby_names_year.loc[baby_names_year['Sex'] == 'Female']
     
-    baby_names_sex 
+
+     
     #  = baby_names[baby_names['Year'] == year]
 
     """Return a list of all passenger names"""
@@ -61,16 +63,19 @@ def year(year):
 
     # session.close()
 
-    fig = px.bar(baby_names_year, y='Name', x='Count', color='Sex', orientation='h')
-
-    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    fig1 = px.bar(baby_names_boy, y='Name', x='Count', height=800, orientation='h')
+    fig2 = px.bar(baby_names_girl, y='Name', x='Count', height=800,color_discrete_sequence=['pink'], orientation='h')
+    fig3 = px.bar(baby_names_year, x='Count', y='Name', height=800,  color='Sex',color_discrete_sequence=['pink','blue'], orientation='h')
+    graphJSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
+    graphJSON1 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
+    graphJSON2 = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
     # for name in results:
     #     # search_term = character["real_name"].replace(" ", "").lower()
     #     return jsonify(name)
         # if search_term == canonicalized:
         #     return jsonify(character)
 
-    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON) 
+    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2) 
 
 
 @app.route("/name/<name>")
