@@ -65,7 +65,8 @@ def year(year):
 
     fig1 = px.bar(baby_names_boy, y='Name', x='Count', height=800, orientation='h')
     fig2 = px.bar(baby_names_girl, y='Name', x='Count', height=800,color_discrete_sequence=['pink'], orientation='h')
-    fig3 = px.bar(baby_names_year, x='Count', y='Name', height=800,  color='Sex',color_discrete_sequence=['pink','blue'], orientation='h')
+    fig3 = px.scatter(baby_names_year, x='Count', y='Rank', height=800,  size = 'Count', color='Sex',color_discrete_sequence=['pink','blue'], orientation='h', hover_name="Name")
+    fig3.update_layout(yaxis=dict(autorange="reversed"))
     graphJSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
     graphJSON1 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
     graphJSON2 = json.dumps(fig3, cls=plotly.utils.PlotlyJSONEncoder)
