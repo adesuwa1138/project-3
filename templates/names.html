@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>Weather View</title>
+        {% endblock %}
+
+        {% from 'bootstrap4/form.html' import render_field %}
+
+    </head>
+    <body class="bg-black text-light">
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand text-light" href="/">Hawaii Climate View</a>
+            <button class="navbar-toggler btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon text-light"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/precipitation">Precipitation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/stations">Stations</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light" href="/api/v1.0/tobs">Tempurature Observations</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      <div class="container p-5">
+
+        <div id='chart' class='chart'”></div>
+        
+        {% for value in query %}
+              <div class="row p-3">
+                <div class="col-3"> {{ value['Name'] }} </div>
+                <div class="col-3"> {{ value['Year'] }} </div>  
+                <div class="col-3"> {{ value['Sex'] }} </div>
+                <div class="col-3"> {{ value['Count'] }} </div>
+                <div class="col-3"> {{ value['Rank'] }} </div>
+                
+              </div> 
+        {%  endfor %}
+
+    </div>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <script type='text/javascript'>
+      var graphs = {{graphJSON | safe}};
+      Plotly.plot('chart',graphs,{});
+    </script>
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+    </body>
+</html>
