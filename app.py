@@ -63,13 +63,13 @@ def year(year):
 
     # session.close()
     
-   
+   #Create visualizations for YEAR data
 
     fig1 = px.bar(baby_names_boy, y='Name', x='Count', height=800, orientation='h')
     fig2 = px.bar(baby_names_girl, y='Name', x='Count', height=800,color_discrete_sequence=['pink'], orientation='h')
     fig3 = px.scatter(baby_names_year, x='Count', y='Rank', height=800,  size = 'Count', color='Sex',color_discrete_sequence=['pink','blue'], orientation='h', hover_name="Name")
-    fig1.update_layout(template='simple_white')
-    fig2.update_layout(template='simple_white')
+    fig1.update_layout(template='simple_white', xaxis_range=[0,10000])
+    fig2.update_layout(template='simple_white',  xaxis_range=[0,10000])
     fig3.update_layout(yaxis=dict(autorange="reversed"), template='simple_white')
     graphJSON = json.dumps(fig1, cls=plotly.utils.PlotlyJSONEncoder)
     graphJSON1 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
@@ -82,6 +82,7 @@ def year(year):
 
     return render_template("year.html", query = baby_names_year, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2) 
 
+#Create page for Name queries
 
 @app.route("/name/<name>")
 def name(name):
@@ -89,8 +90,16 @@ def name(name):
    baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
 
    baby_names_names = baby_names[baby_names['Name'] == name]
-
-   fig = px.line(baby_names_names, y='Count', x='Year', color='Sex', orientation='h')
+   
+# Create visualization for name entry
+   
+   fig = px.line(baby_names_names, y='Count', x='Year', color='Sex', orientation='h', title = (f'Hello, my name is {name}'))
+   
+   fig.update_layout(title_font_family="Times New Roman",
+                     title_font_color="gold",
+                     title_font_size=70,
+                     title_x=0.5)
+                     
 
    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
