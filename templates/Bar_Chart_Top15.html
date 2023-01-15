@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 3: Data Visualization</title>
+ 
+</head>
+
+<body>
+
+  <h1>Top 15 Most Popular Names</h1>
+  <p>The dataset contains baby names from 1960 to 2021.</p>
+  <p>As shown in the graph, the most popular name during this timefram is "Michael".</p>
+
+  
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['MICHAEL', 'DAVID', 'DANIEL', 'MATTHEW', 'ANTHONY', 'ROBERT', 'CHRISTOPHER', 'JAMES', 'JOHN', 'JOSEPH', 'JOSE', 'JOSHUA', 'JESSICA', 'ANDREW'],
+        datasets: [{
+          label: 'Name Count',
+          data: [330336, 264837, 224801, 163886, 162024, 159990, 148715, 143209, 141515, 138513, 132406, 123651, 123621, 118876],
+          backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
