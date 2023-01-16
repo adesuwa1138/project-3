@@ -1,0 +1,28 @@
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'Name' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+          [ 'Daniel', new Date(1994, 1, 1), new Date(2009, 12, 31) ],
+          [ 'Michael', new Date(1960, 1, 1),  new Date(1993, 12, 31) ],
+          [ 'Jacob',  new Date(2010, 1, 1),  new Date(2013, 12, 31) ],
+          [ 'Noah',  new Date(2014, 1, 1),  new Date(2021, 12, 31) ],
+          [ 'Susan',  new Date(1960, 1, 1),  new Date(1960, 12, 31) ],
+          [ 'Lisa',  new Date(1961, 1, 1),  new Date(1969, 12, 31) ],
+          [ 'Jennifer',  new Date(1970, 1, 1),  new Date(1984, 12, 31) ],
+          [ 'Jessica',  new Date(1985, 1, 1),  new Date(1998, 12, 31) ],
+          [ 'Emily',  new Date(1999, 1, 1),  new Date(2007, 12, 31) ],
+          [ 'Isabella',  new Date(2008, 1, 1),  new Date(2010, 12, 31) ],
+          [ 'Sophia',  new Date(2011, 1, 1),  new Date(2015, 12, 31) ],
+          [ 'Mia',  new Date(2016, 1, 1),  new Date(2016, 12, 31) ],
+          [ 'Emma',  new Date(2017, 1, 1),  new Date(2018, 12, 31) ],
+          [ 'Olivia',  new Date(2019, 1, 1),  new Date(2021, 12, 31) ]]);
+
+        chart.draw(dataTable);
+        }
