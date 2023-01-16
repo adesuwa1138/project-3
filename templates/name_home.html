@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#header-link1").change(function(){
+                if ($(this).val()!='') {
+                    window.location.href=$(this).val();
+                }
+                });
+            });
+        </script>
+
+        {% block head %}
+     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <title>Baby Names</title>
+        {% endblock %}
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <!-- <script>
+
+            var text
+            function visit_site() {
+                text=document.getElementById('form').value;
+
+                "location.href='http://127.0.0.1:5000/name_home/'"
+
+
+                console.log(text);
+            }
+        </script> -->
+    </head>
+    <body class="">
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">What's Your Name?</a>
+      
+          </div>
+        </nav>
+        <div class="py-5" style="justify-content: center; text-align: center;">
+            <h2>
+                What name would you like to search?
+            </h2>
+
+            <form >
+                <select name="forma" id="header-link1" >
+             <option value="Select option">
+                Select option
+            </option>
+            <option value="http://127.0.0.1:5000/name_home/AARON"/>AARON </option>
+            <option value="http://127.0.0.1:5000/name_home/ABIGAIL"/>ABIGAIL </option>
+            <option value="http://127.0.0.1:5000/name_home/ADAM"/>ADAM </option>
+            <option value="http://127.0.0.1:5000/name_home/ADRIAN"/>ADRIAN </option>
+            <option value="http://127.0.0.1:5000/name_home/AIDEN"/>AIDEN </option>
+            <option value="http://127.0.0.1:5000/name_home/ALEXA"/>ALEXA </option>
+            <option value="http://127.0.0.1:5000/name_home/ALEXANDER"/>ALEXANDER </option>
+            <option value="http://127.0.0.1:5000/name_home/ALEXANDRA"/>ALEXANDRA </option>
+            <option value="http://127.0.0.1:5000/name_home/ALEXIS"/>ALEXIS </option>
+            <option value="http://127.0.0.1:5000/name_home/ALLISON"/>ALLISON </option>
+            <option value="http://127.0.0.1:5000/name_home/ALYSSA"/>ALYSSA </option>
+            <option value="http://127.0.0.1:5000/name_home/AMANDA"/>AMANDA </option>
+            <option value="http://127.0.0.1:5000/name_home/AMBER"/>AMBER </option>
+            <option value="http://127.0.0.1:5000/name_home/AMELIA"/>AMELIA </option>
+            <option value="http://127.0.0.1:5000/name_home/AMY"/>AMY </option>
+            <option value="http://127.0.0.1:5000/name_home/ANDREA"/>ANDREA </option>
+            <option value="http://127.0.0.1:5000/name_home/ANDREW"/>ANDREW </option>
+            <option value="http://127.0.0.1:5000/name_home/ANGEL"/>ANGEL </option>
+            <option value="http://127.0.0.1:5000/name_home/ANGELA"/>ANGELA </option>
+            <option value="http://127.0.0.1:5000/name_home/ANGELINA"/>ANGELINA </option>
+            <option value="http://127.0.0.1:5000/name_home/ANTHONY"/>ANTHONY </option>
+            <option value="http://127.0.0.1:5000/name_home/ARIA"/>ARIA </option>
+            <option value="http://127.0.0.1:5000/name_home/ASHLEY"/>ASHLEY </option>
+            <option value="http://127.0.0.1:5000/name_home/AUDREY"/>AUDREY </option>
+            <option value="http://127.0.0.1:5000/name_home/AUSTIN"/>AUSTIN </option>
+            <option value="http://127.0.0.1:5000/name_home/AVA"/>AVA </option>
+            <option value="http://127.0.0.1:5000/name_home/AVERY"/>AVERY </option>
+            <option value="http://127.0.0.1:5000/name_home/BARBARA"/>BARBARA </option>
+            <option value="http://127.0.0.1:5000/name_home/BELLA"/>BELLA </option>
+            <option value="http://127.0.0.1:5000/name_home/BENJAMIN"/>BENJAMIN </option>
+            <option value="http://127.0.0.1:5000/name_home/BRANDON"/>BRANDON </option>
+            <option value="http://127.0.0.1:5000/name_home/BRIAN"/>BRIAN </option>
+            <option value="http://127.0.0.1:5000/name_home/BRIANNA"/>BRIANNA </option>
+            <option value="http://127.0.0.1:5000/name_home/BRITTANY"/>BRITTANY </option>
+            <option value="http://127.0.0.1:5000/name_home/CAMILA"/>CAMILA </option>
+            <option value="http://127.0.0.1:5000/name_home/CARLOS"/>CARLOS </option>
+            <option value="http://127.0.0.1:5000/name_home/CAROL"/>CAROL </option>
+            <option value="http://127.0.0.1:5000/name_home/CHARLES"/>CHARLES </option>
+            <option value="http://127.0.0.1:5000/name_home/CHARLOTTE"/>CHARLOTTE </option>
+            <option value="http://127.0.0.1:5000/name_home/CHELSEA"/>CHELSEA </option>
+            <option value="http://127.0.0.1:5000/name_home/CHERYL"/>CHERYL </option>
+            <option value="http://127.0.0.1:5000/name_home/CHLOE"/>CHLOE </option>
+            <option value="http://127.0.0.1:5000/name_home/CHRISTIAN"/>CHRISTIAN </option>
+            <option value="http://127.0.0.1:5000/name_home/CHRISTINA"/>CHRISTINA </option>
+            <option value="http://127.0.0.1:5000/name_home/CHRISTINE"/>CHRISTINE </option>
+            <option value="http://127.0.0.1:5000/name_home/CHRISTOPHER"/>CHRISTOPHER </option>
+            <option value="http://127.0.0.1:5000/name_home/CRYSTAL"/>CRYSTAL </option>
+            <option value="http://127.0.0.1:5000/name_home/CYNTHIA"/>CYNTHIA </option>
+            <option value="http://127.0.0.1:5000/name_home/DANIEL"/>DANIEL </option>
+            <option value="http://127.0.0.1:5000/name_home/DANIELLE"/>DANIELLE </option>
+            <option value="http://127.0.0.1:5000/name_home/DAVID"/>DAVID </option>
+            <option value="http://127.0.0.1:5000/name_home/DAWN"/>DAWN </option>
+            <option value="http://127.0.0.1:5000/name_home/DEBORAH"/>DEBORAH </option>
+            <option value="http://127.0.0.1:5000/name_home/DEBRA"/>DEBRA </option>
+            <option value="http://127.0.0.1:5000/name_home/DENISE"/>DENISE </option>
+            <option value="http://127.0.0.1:5000/name_home/DESTINY"/>DESTINY </option>
+            <option value="http://127.0.0.1:5000/name_home/DIANA"/>DIANA </option>
+            <option value="http://127.0.0.1:5000/name_home/DIEGO"/>DIEGO </option>
+            <option value="http://127.0.0.1:5000/name_home/DONALD"/>DONALD </option>
+            <option value="http://127.0.0.1:5000/name_home/DONNA"/>DONNA </option>
+            <option value="http://127.0.0.1:5000/name_home/DYLAN"/>DYLAN </option>
+            <option value="http://127.0.0.1:5000/name_home/ELIJAH"/>ELIJAH </option>
+            <option value="http://127.0.0.1:5000/name_home/ELIZABETH"/>ELIZABETH </option>
+            <option value="http://127.0.0.1:5000/name_home/ELLA"/>ELLA </option>
+            <option value="http://127.0.0.1:5000/name_home/EMILY"/>EMILY </option>
+            <option value="http://127.0.0.1:5000/name_home/EMMA"/>EMMA </option>
+            <option value="http://127.0.0.1:5000/name_home/ERIC"/>ERIC </option>
+            <option value="http://127.0.0.1:5000/name_home/ERIN"/>ERIN </option>
+            <option value="http://127.0.0.1:5000/name_home/ETHAN"/>ETHAN </option>
+            <option value="http://127.0.0.1:5000/name_home/EVELYN"/>EVELYN </option>
+            <option value="http://127.0.0.1:5000/name_home/EZEKIEL"/>EZEKIEL </option>
+            <option value="http://127.0.0.1:5000/name_home/EZRA"/>EZRA </option>
+            <option value="http://127.0.0.1:5000/name_home/GABRIEL"/>GABRIEL </option>
+            <option value="http://127.0.0.1:5000/name_home/GENESIS"/>GENESIS </option>
+            <option value="http://127.0.0.1:5000/name_home/GIANNA"/>GIANNA </option>
+            <option value="http://127.0.0.1:5000/name_home/GRACE"/>GRACE </option>
+            <option value="http://127.0.0.1:5000/name_home/GREGORY"/>GREGORY </option>
+            <option value="http://127.0.0.1:5000/name_home/HAILEY"/>HAILEY </option>
+            <option value="http://127.0.0.1:5000/name_home/HANNAH"/>HANNAH </option>
+            <option value="http://127.0.0.1:5000/name_home/HEATHER"/>HEATHER </option>
+            <option value="http://127.0.0.1:5000/name_home/ISAAC"/>ISAAC </option>
+            <option value="http://127.0.0.1:5000/name_home/ISABELLA"/>ISABELLA </option>
+            <option value="http://127.0.0.1:5000/name_home/JACOB"/>JACOB </option>
+            <option value="http://127.0.0.1:5000/name_home/JACQUELINE"/>JACQUELINE </option>
+            <option value="http://127.0.0.1:5000/name_home/JAMES"/>JAMES </option>
+            <option value="http://127.0.0.1:5000/name_home/JAMIE"/>JAMIE </option>
+            <option value="http://127.0.0.1:5000/name_home/JASMINE"/>JASMINE </option>
+            <option value="http://127.0.0.1:5000/name_home/JASON"/>JASON </option>
+            <option value="http://127.0.0.1:5000/name_home/JAYDEN"/>JAYDEN </option>
+            <option value="http://127.0.0.1:5000/name_home/JEFFREY"/>JEFFREY </option>
+            <option value="http://127.0.0.1:5000/name_home/JENNIFER"/>JENNIFER </option>
+            <option value="http://127.0.0.1:5000/name_home/JEREMY"/>JEREMY </option>
+            <option value="http://127.0.0.1:5000/name_home/JESSICA"/>JESSICA </option>
+            <option value="http://127.0.0.1:5000/name_home/JESUS"/>JESUS </option>
+            <option value="http://127.0.0.1:5000/name_home/JOCELYN"/>JOCELYN </option>
+            <option value="http://127.0.0.1:5000/name_home/JOHN"/>JOHN </option>
+            <option value="http://127.0.0.1:5000/name_home/JONATHAN"/>JONATHAN </option>
+            <option value="http://127.0.0.1:5000/name_home/JOSE"/>JOSE </option>
+            <option value="http://127.0.0.1:5000/name_home/JOSEPH"/>JOSEPH </option>
+            <option value="http://127.0.0.1:5000/name_home/JOSHUA"/>JOSHUA </option>
+            <option value="http://127.0.0.1:5000/name_home/JUAN"/>JUAN </option>
+            <option value="http://127.0.0.1:5000/name_home/JULIAN"/>JULIAN </option>
+            <option value="http://127.0.0.1:5000/name_home/JULIE"/>JULIE </option>
+            <option value="http://127.0.0.1:5000/name_home/JUSTIN"/>JUSTIN </option>
+            <option value="http://127.0.0.1:5000/name_home/KAREN"/>KAREN </option>
+            <option value="http://127.0.0.1:5000/name_home/KATHERINE"/>KATHERINE </option>
+            <option value="http://127.0.0.1:5000/name_home/KATHLEEN"/>KATHLEEN </option>
+            <option value="http://127.0.0.1:5000/name_home/KAYLA"/>KAYLA </option>
+            <option value="http://127.0.0.1:5000/name_home/KELLY"/>KELLY </option>
+            <option value="http://127.0.0.1:5000/name_home/KENNETH"/>KENNETH </option>
+            <option value="http://127.0.0.1:5000/name_home/KEVIN"/>KEVIN </option>
+            <option value="http://127.0.0.1:5000/name_home/KIMBERLY"/>KIMBERLY </option>
+            <option value="http://127.0.0.1:5000/name_home/KYLE"/>KYLE </option>
+            <option value="http://127.0.0.1:5000/name_home/LAURA"/>LAURA </option>
+            <option value="http://127.0.0.1:5000/name_home/LAUREN"/>LAUREN </option>
+            <option value="http://127.0.0.1:5000/name_home/LAYLA"/>LAYLA </option>
+            <option value="http://127.0.0.1:5000/name_home/LEO"/>LEO </option>
+            <option value="http://127.0.0.1:5000/name_home/LESLIE"/>LESLIE </option>
+            <option value="http://127.0.0.1:5000/name_home/LEVI"/>LEVI </option>
+            <option value="http://127.0.0.1:5000/name_home/LIAM"/>LIAM </option>
+            <option value="http://127.0.0.1:5000/name_home/LINDA"/>LINDA </option>
+            <option value="http://127.0.0.1:5000/name_home/LISA"/>LISA </option>
+            <option value="http://127.0.0.1:5000/name_home/LOGAN"/>LOGAN </option>
+            <option value="http://127.0.0.1:5000/name_home/LORI"/>LORI </option>
+            <option value="http://127.0.0.1:5000/name_home/LUCAS"/>LUCAS </option>
+            <option value="http://127.0.0.1:5000/name_home/LUIS"/>LUIS </option>
+            <option value="http://127.0.0.1:5000/name_home/LUNA"/>LUNA </option>
+            <option value="http://127.0.0.1:5000/name_home/MADISON"/>MADISON </option>
+            <option value="http://127.0.0.1:5000/name_home/MARIA"/>MARIA </option>
+            <option value="http://127.0.0.1:5000/name_home/MARK"/>MARK </option>
+            <option value="http://127.0.0.1:5000/name_home/MARY"/>MARY </option>
+            <option value="http://127.0.0.1:5000/name_home/MASON"/>MASON </option>
+            <option value="http://127.0.0.1:5000/name_home/MATEO"/>MATEO </option>
+            <option value="http://127.0.0.1:5000/name_home/MATTHEW"/>MATTHEW </option>
+            <option value="http://127.0.0.1:5000/name_home/MAYA"/>MAYA </option>
+            <option value="http://127.0.0.1:5000/name_home/MEGAN"/>MEGAN </option>
+            <option value="http://127.0.0.1:5000/name_home/MELANIE"/>MELANIE </option>
+            <option value="http://127.0.0.1:5000/name_home/MELISSA"/>MELISSA </option>
+            <option value="http://127.0.0.1:5000/name_home/MIA"/>MIA </option>
+            <option value="http://127.0.0.1:5000/name_home/MICHAEL"/>MICHAEL </option>
+            <option value="http://127.0.0.1:5000/name_home/MICHELE"/>MICHELE </option>
+            <option value="http://127.0.0.1:5000/name_home/MICHELLE"/>MICHELLE </option>
+            <option value="http://127.0.0.1:5000/name_home/MILA"/>MILA </option>
+            <option value="http://127.0.0.1:5000/name_home/MONICA"/>MONICA </option>
+            <option value="http://127.0.0.1:5000/name_home/NANCY"/>NANCY </option>
+            <option value="http://127.0.0.1:5000/name_home/NATALIA"/>NATALIA </option>
+            <option value="http://127.0.0.1:5000/name_home/NATALIE"/>NATALIE </option>
+            <option value="http://127.0.0.1:5000/name_home/NATHAN"/>NATHAN </option>
+            <option value="http://127.0.0.1:5000/name_home/NICHOLAS"/>NICHOLAS </option>
+            <option value="http://127.0.0.1:5000/name_home/NICOLE"/>NICOLE </option>
+            <option value="http://127.0.0.1:5000/name_home/NOAH"/>NOAH </option>
+            <option value="http://127.0.0.1:5000/name_home/OLIVER"/>OLIVER </option>
+            <option value="http://127.0.0.1:5000/name_home/OLIVIA"/>OLIVIA </option>
+            <option value="http://127.0.0.1:5000/name_home/PAMELA"/>PAMELA </option>
+            <option value="http://127.0.0.1:5000/name_home/PATRICIA"/>PATRICIA </option>
+            <option value="http://127.0.0.1:5000/name_home/PAUL"/>PAUL </option>
+            <option value="http://127.0.0.1:5000/name_home/PENELOPE"/>PENELOPE </option>
+            <option value="http://127.0.0.1:5000/name_home/RACHEL"/>RACHEL </option>
+            <option value="http://127.0.0.1:5000/name_home/REBECCA"/>REBECCA </option>
+            <option value="http://127.0.0.1:5000/name_home/RICHARD"/>RICHARD </option>
+            <option value="http://127.0.0.1:5000/name_home/ROBERT"/>ROBERT </option>
+            <option value="http://127.0.0.1:5000/name_home/ROBIN"/>ROBIN </option>
+            <option value="http://127.0.0.1:5000/name_home/RONALD"/>RONALD </option>
+            <option value="http://127.0.0.1:5000/name_home/RYAN"/>RYAN </option>
+            <option value="http://127.0.0.1:5000/name_home/SAMANTHA"/>SAMANTHA </option>
+            <option value="http://127.0.0.1:5000/name_home/SANDRA"/>SANDRA </option>
+            <option value="http://127.0.0.1:5000/name_home/SANTIAGO"/>SANTIAGO </option>
+            <option value="http://127.0.0.1:5000/name_home/SARA"/>SARA </option>
+            <option value="http://127.0.0.1:5000/name_home/SARAH"/>SARAH </option>
+            <option value="http://127.0.0.1:5000/name_home/SCARLETT"/>SCARLETT </option>
+            <option value="http://127.0.0.1:5000/name_home/SCOTT"/>SCOTT </option>
+            <option value="http://127.0.0.1:5000/name_home/SEBASTIAN"/>SEBASTIAN </option>
+            <option value="http://127.0.0.1:5000/name_home/SHANNON"/>SHANNON </option>
+            <option value="http://127.0.0.1:5000/name_home/SOFIA"/>SOFIA </option>
+            <option value="http://127.0.0.1:5000/name_home/SOPHIA"/>SOPHIA </option>
+            <option value="http://127.0.0.1:5000/name_home/STEPHANIE"/>STEPHANIE </option>
+            <option value="http://127.0.0.1:5000/name_home/STEVEN"/>STEVEN </option>
+            <option value="http://127.0.0.1:5000/name_home/SUSAN"/>SUSAN </option>
+            <option value="http://127.0.0.1:5000/name_home/TAMMY"/>TAMMY </option>
+            <option value="http://127.0.0.1:5000/name_home/TAYLOR"/>TAYLOR </option>
+            <option value="http://127.0.0.1:5000/name_home/TERESA"/>TERESA </option>
+            <option value="http://127.0.0.1:5000/name_home/THOMAS"/>THOMAS </option>
+            <option value="http://127.0.0.1:5000/name_home/TIFFANY"/>TIFFANY </option>
+            <option value="http://127.0.0.1:5000/name_home/TIMOTHY"/>TIMOTHY </option>
+            <option value="http://127.0.0.1:5000/name_home/TINA"/>TINA </option>
+            <option value="http://127.0.0.1:5000/name_home/TRACY"/>TRACY </option>
+            <option value="http://127.0.0.1:5000/name_home/TYLER"/>TYLER </option>
+            <option value="http://127.0.0.1:5000/name_home/VALENTINA"/>VALENTINA </option>
+            <option value="http://127.0.0.1:5000/name_home/VALERIA"/>VALERIA </option>
+            <option value="http://127.0.0.1:5000/name_home/VANESSA"/>VANESSA </option>
+            <option value="http://127.0.0.1:5000/name_home/VERONICA"/>VERONICA </option>
+            <option value="http://127.0.0.1:5000/name_home/VICTORIA"/>VICTORIA </option>
+            <option value="http://127.0.0.1:5000/name_home/WENDY"/>WENDY </option>
+            <option value="http://127.0.0.1:5000/name_home/WILLIAM"/>WILLIAM </option>
+            <option value="http://127.0.0.1:5000/name_home/ZOE"/>ZOE </option>
+
+            </select>
+        </form>
+        
+            <!-- <form action="submit" id="form" method="get">
+                <input type="url" name="url" placeholder="Enter a Name" onchange="document.getElementById('form').action = this.value;">
+                <input type=button onClick=visit_site() value= GO here'>
+              </form> -->
+
+
+              <!-- <form>
+                <p>
+                  <label>Text goes below</label>
+                  <input id="in" type="text" placeholder="type stuff here">
+                </p>
+        
+                <p>
+                  <input type="button" value="Click Me" onclick="clickme()"></input>
+                </p>
+            </form> -->
+        </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

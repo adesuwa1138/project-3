@@ -34,8 +34,18 @@ def home():
     
     return render_template("index.html")
 
+@app.route("/year_home")
+def year_home():
+    
+    return render_template("year_home.html")
 
-@app.route("/year/<year>")
+@app.route("/name_home")
+def name_home():
+    
+    return render_template("name_home.html")
+
+
+@app.route("/year_home/<year>")
 def year(year):
     """Fetch the Justice League character whose real_name matches
        the path variable supplied by the user, or a 404 if not."""
@@ -80,110 +90,39 @@ def year(year):
         # if search_term == canonicalized:
         #     return jsonify(character)
 
-    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2) 
+    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2, year = year_num) 
 
 #Create page for Name queries
 
-@app.route("/name/<name>")
+@app.route("/name_home/<name>")
 def name(name):
    conn = engine.connect()
    baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
 
    baby_names_names = baby_names[baby_names['Name'] == name]
-   
+
+   if baby_names_names['Sex'].loc[baby_names_names.index[0]] == "Male":
+    sex_color = '#636efa'
+   else:
+    sex_color = '#ffc0cb'
+
+
 # Create visualization for name entry
    
-   fig = px.line(baby_names_names, y='Count', x='Year', color='Sex', orientation='h', title = (f'Hello, my name is {name}'))
+   fig = px.line(baby_names_names, y='Count', x='Year', color='Sex',color_discrete_sequence=[sex_color], orientation='h', title = (f'Hello, my name is {name}'))
    
    fig.update_layout(title_font_family="Times New Roman",
                      title_font_color="gold",
                      title_font_size=70,
-                     title_x=0.5)
+                     title_x=0.5,
+                     template='simple_white')
                      
 
    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
    return render_template("names.html", query = baby_names, graphJSON=graphJSON) 
 
-# @app.route("/start", methods=['GET'])
-# def start():
-#     if request.method == "POST":
-#         start_date = request.form['start_date'].upper()
-#         return redirect(url_for('success', start_date=start_date))
-#     return render_template("start.html")  
-
-# 4. Define what to do when a user hits the /about route
-
-# @app.route("/start/<date>/", methods=["GET", "POST"])
-# def specific_date(date):
-#     print("\n\nDate:", date, "\n\n")
-#     images = get_files_on(date)
-#     print("\n\nSpecific date images:", images)
-#     return default_template(date=date, image_list=images)
-
-# @app.route("/api/v1.0/precipitation")
-# def precipitation():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-
-#     """Return a list of all passenger names"""
-#     # Query all passengers
-#     # results = session.query(measurement.date, measurement.prcp).all()
-    
-#     precip_data = engine.execute("SELECT * FROM measurement WHERE strftime('%Y-%m-%d',date) >= '2016-09-01'").fetchall()
-
-#     session.close()
-
-#     # Convert list of tuples into normal list
-#    # all_precip = list(np.ravel(results))
-
-#     return render_template("precip.html", query = precip_data) 
-
-
-# @app.route("/api/v1.0/stations", methods=['GET'])
-# def stations():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-
-#     """Return a list of all passenger names"""
-#     # Query all passengers
-#     results = session.query(station.station, station.name, station.latitude, station.longitude).all()
-
-
-#     session.close()
-
-#     # Convert list of tuples into normal list
-    
-#     #all_stations = list(np.ravel(results))
-#     #all_stations = list(np.ravel(results))
-
-#    # result = jsonify(all_stations)
-
-#     return render_template("station.html", query = results) 
-
-# @app.route("/api/v1.0/tobs")
-# def tobs():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
-    
-#     precip_data = engine.execute("SELECT * FROM measurement WHERE strftime('%Y-%m-%d',date) >= '2016-09-01' AND station = 'USC00519281';").fetchall()
-    
-#     """Return a list of all passenger names"""
-#     # Query all passengers
-#     results = session.query(measurement.prcp).all()
-
-#     session.close()
-
-#     # Convert list of tuples into normal list
-#     return render_template("tobs.html", query = precip_data) 
-
-    
-
-# @app.route("/template")
-# def template():
-#     # Create our session (link) from Python to the DB
-
-#     return render_template("template.html")  
+ 
 
 if __name__ == "__main__":
     app.run(debug=True)
