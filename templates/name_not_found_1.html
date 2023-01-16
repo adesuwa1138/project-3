@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+     
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript"> 
+        google.charts.load('current', {'packages':['timeline']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var container = document.getElementById('timeline');
+          var chart = new google.visualization.Timeline(container);
+          var dataTable = new google.visualization.DataTable();
+
+          dataTable.addColumn({ type: 'string', id: 'Name' });
+          dataTable.addColumn({ type: 'date', id: 'Start' });
+          dataTable.addColumn({ type: 'date', id: 'End' });
+          dataTable.addRows([
+            [ 'Daniel', new Date(1994, 1, 1), new Date(2009, 12, 31) ],
+            [ 'Michael', new Date(1960, 1, 1),  new Date(1993, 12, 31) ],
+            [ 'Jacob',  new Date(2010, 1, 1),  new Date(2013, 12, 31) ],
+            [ 'Noah',  new Date(2014, 1, 1),  new Date(2021, 12, 31) ],
+            [ 'Susan',  new Date(1960, 1, 1),  new Date(1960, 12, 31) ],
+            [ 'Lisa',  new Date(1961, 1, 1),  new Date(1969, 12, 31) ],
+            [ 'Jennifer',  new Date(1970, 1, 1),  new Date(1984, 12, 31) ],
+            [ 'Jessica',  new Date(1985, 1, 1),  new Date(1998, 12, 31) ],
+            [ 'Emily',  new Date(1999, 1, 1),  new Date(2007, 12, 31) ],
+            [ 'Isabella',  new Date(2008, 1, 1),  new Date(2010, 12, 31) ],
+            [ 'Sophia',  new Date(2011, 1, 1),  new Date(2015, 12, 31) ],
+            [ 'Mia',  new Date(2016, 1, 1),  new Date(2016, 12, 31) ],
+            [ 'Emma',  new Date(2017, 1, 1),  new Date(2018, 12, 31) ],
+            [ 'Olivia',  new Date(2019, 1, 1),  new Date(2021, 12, 31) ]]);
+
+          var options = {
+            colors: [
+              '#0180CB', 
+              '#0180CB', 
+              '#0180CB', 
+              '#0180CB',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310',
+              '#FFC310'],
+            alternatingRowStyle: false,
+            stroke: "#ffffff"
+          };
+
+          chart.draw(dataTable, options);
+          }
+        </script>
+        <title>Baby Names</title>
+        
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+    <body class="">
+      <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/" style="font-family: Great Vibes; font-size: 48px;"> <span style="color: #0180CB;">California</span>  <span style="color: #FFC310;">Babes</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/name_home">By Name</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  href="/year_home">By Year</a>
+                </li>
+              </ul>
+            </div>
+      
+          </div>
+        </nav>
+
+  
+  
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      
+      <h4 style = "margin: 10px 0px ;">ANNA was not found</h4>
+  
+
+      <h5>These are the top baby names from 1960 to 2021</h5>
+      <h5>The most popular name during this timeframe is "Michael"</h5>
+      <hr style="margin: 1em;">
+      <div class="col-5">
+        <h1>The 15 Most Popular Names</h1>
+       
+       
+
+        <canvas id="myChart" height="370px"></canvas>
+      </div>
+      <div class="col-1"></div>
+      <div class="col-6">
+        <h1>History of #1 Ranked Names</h1>
+        
+      
+        <div id="timeline" style="height: 800px;"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+ 
+  
+  
+  <script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['MICHAEL', 'DAVID', 'DANIEL', 'MATTHEW', 'ANTHONY', 'ROBERT', 'CHRISTOPHER', 'JAMES', 'JOHN', 'JOSEPH', 'JOSE', 'JOSHUA', 'JESSICA', 'ANDREW'],
+        datasets: [{
+          data: [330336, 264837, 224801, 163886, 162024, 159990, 148715, 143209, 141515, 138513, 132406, 123651, 123621, 118876],
+          backgroundColor: [
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#FFC310',
+            '#0180CB'
+          ],
+          borderColor: [
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#0180CB',
+            '#FFC310',
+            '#0180CB'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
