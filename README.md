@@ -30,4 +30,16 @@ NameNotFound:
 
 
         
-## Presentation
+## Contributions
+Sorie Dumbuya
+
+
+Adesuwa Ogiamien
+
+Paul Distasi
+
+Dylan Jackson
+
+Alex Garcia
+
+## Special Thanks to Anna Distasi
