@@ -13,6 +13,16 @@
         <link rel="stylesheet" href="static/style.css">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#header-link1").change(function(){
+                if ($(this).val()!='') {
+                    window.location.href=$(this).val();
+                }
+                });
+            });
+        </script>
     </head>
     <body class="">
         <nav class="navbar bg-white navbar-expand-lg">
@@ -30,11 +40,82 @@
               </div>      
           </div>
         </nav>
-        <div class="" style="justify-content: center; text-align: center;">
-            <form action="">
-                <input type="text">
-              </form>
-              
+        <div class="py-5" style="justify-content: center; text-align: center;">
+            <h2>
+                What year would you like to search?
+            </h2>
+
+            <form >
+                <select name="forma" id="header-link1" >
+                    <option value="Select option">
+                        Select option
+                    </option>
+                    <option value="http://127.0.0.1:5000/year_home/1960"/>1960 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1961"/>1961 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1962"/>1962 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1963"/>1963 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1964"/>1964 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1965"/>1965 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1966"/>1966 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1967"/>1967 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1968"/>1968 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1969"/>1969 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1970"/>1970 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1971"/>1971 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1972"/>1972 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1973"/>1973 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1974"/>1974 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1975"/>1975 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1976"/>1978 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1977"/>1977 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1978"/>1978 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1979"/>1979 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1980"/>1980 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1981"/>1981 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1982"/>1982 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1983"/>1983 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1984"/>1984 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1985"/>1985 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1986"/>1986 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1987"/>1987 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1988"/>1988 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1989"/>1989 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1990"/>1990 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1991"/>1991 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1992"/>1992 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1993"/>1993 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1994"/>1994 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1995"/>1995 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1996"/>1996 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1997"/>1997 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1998"/>1998 </option>
+                    <option value="http://127.0.0.1:5000/year_home/1999"/>1999 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2000"/>2000 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2001"/>2001 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2002"/>2002 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2003"/>2003 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2004"/>2004 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2005"/>2005 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2006"/>2006 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2007"/>2007 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2008"/>2008 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2009"/>2009 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2010"/>2010 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2011"/>2011 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2012"/>2012 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2013"/>2013 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2014"/>2014 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2015"/>2015 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2016"/>2016 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2017"/>2017 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2018"/>2018 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2019"/>2019 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2020"/>2020 </option>
+                    <option value="http://127.0.0.1:5000/year_home/2021"/>2021 </option>
+                </select>
+        </form>
+        
+            
         </div>
       
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
