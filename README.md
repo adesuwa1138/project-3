@@ -8,7 +8,7 @@ For our data, we began by using a large data set containg baby names from Kaggle
 ## Back End
 Our data based used was SQLite. 
 Our project is powered by Flask API.
-We utilized HTML/CSS, JavaScript, Charts.JS, Google-Charts, Plot.ly.
+We utilized HTML/CSS, JavaScript, Charts.JS, Google-Charts, Plot.ly, and Beautiful Soup.
 
 ## Visualizations 
 Our website features 3 dashboard pages.
