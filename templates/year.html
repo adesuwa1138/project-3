@@ -30,7 +30,10 @@
     
         </div>
       </nav>
+      
       <div class="container-fluid">
+ 
+
         <div class="row" style= 'text-align: center'>
           <div class="col-3">
             <h3>Boy Names</h3>
@@ -41,17 +44,26 @@
             <h3>Girl Names</h3>
             <div id='chart1' class='chart1'”></div>
           </div>
-          <div class="col-6">
-            <h3>Top Names</h3>
-            <div id='chart2' class='chart2'”></div>
+          <div class="col-6" style="text-align: center;">
+            <h3 style="margin-bottom:2.5em;">Famous People Born in {{year}}</h3>
+            {% for value in data %}
+
+              <img src="{{ value['img_url']}}"> 
+            
+          {%  endfor %} 
           </div>
         </div>
         
        
         
-        
+       
 
     </div>
+
+      {% block content %}{% endblock %}
+
+  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <script type='text/javascript'>

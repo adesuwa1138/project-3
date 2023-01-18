@@ -10,12 +10,16 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for
 import plotly
 import plotly.express as px
 import plotly.io as pio
-
+import csv
 import json
 #################################################
 # Database Setup
 #################################################
-engine    = create_engine("sqlite:///data/baby_names.db", echo=False)
+engine    = create_engine("sqlite:///static/baby_names.db", echo=False)
+
+famous_names = pd.read_csv("static/famous_people.csv", encoding = 'unicode_escape', engine ='python')
+
+
 
 #################################################
 # Flask Setup
@@ -51,16 +55,56 @@ def year(year):
        the path variable supplied by the user, or a 404 if not."""
 
     # canonicalized = baby_name.replace(" ", "").lower()
+    # famous_names = pd.read_csv("static/famous_people.csv", encoding = 'unicode_escape', engine ='python')
+    # col_names = ['Year','Img_url','Full_name', 'First_name']
+    #     # Use Pandas to parse the CSV file
+    #     # 
+    # csvData = pd.read_csv('static/famous_people.csv',names=col_names, header=0, encoding = 'unicode_escape', engine ='python')
 
+    # names1 = []
+    # for i,row in csvData.iterrows():
+
+    #     names1.append({
+    #             "Name": row['First_name'],
+    #             "Year": row['Img_url'],
+    #             "img_url": row['Year']
+    #             })
+        
+    #     # print(i,row['Year'],row['Img_url'],row['Full_name'],row['First_name'],)
+    
+    # with open('static/famous_people.csv') as csv_file:
+    #     data = csv.reader(csv_file, delimiter=',')
+    #     names = []
+    #     for row in data:
+    #         names.append({
+    #             "Name": row[3],
+    #             "Year": row[0],
+    #             "img_url": row[1]
+    #             })
     conn = engine.connect()
     year_num = int(year)
     baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
     
     baby_names_year = baby_names[baby_names['Year'] == year_num].sort_values(by='Count')
-
+    # top_baby_names = baby_names['Name']str.lower()
     baby_names_boy = baby_names_year.loc[baby_names_year['Sex'] == 'Male']
     baby_names_girl = baby_names_year.loc[baby_names_year['Sex'] == 'Female']
+    conn.close()
     
+    col_names = ['Year','Img_url','Full_name','Name', 'First_name']
+    csvData = pd.read_csv('static/famous_people.csv',names=col_names, header=0, encoding = 'unicode_escape', engine ='python')
+    names_from_csv =  csvData[csvData['Year'] == year_num]
+    top_names = names_from_csv[names_from_csv['Name'].isin(baby_names_year['Name'].str.lower())]
+    names1 = []
+    for i,row in top_names.iterrows():
+
+        names1.append({
+                "Name": row['First_name'],
+                "Year": row['Year'],
+                "img_url": row['Img_url']
+                })
+        
+    year_celebs = famous_names[famous_names['Year'] == year_num]
 
     fig1 = px.bar(baby_names_boy, y='Name', x='Count', height=800,color_discrete_sequence=['#0180CB'], orientation='h')
     fig2 = px.bar(baby_names_girl, y='Name', x='Count', height=800,color_discrete_sequence=['#FFC310'], orientation='h')
@@ -77,7 +121,7 @@ def year(year):
         # if search_term == canonicalized:
         #     return jsonify(character)
 
-    return render_template("year.html", query = baby_names_year, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2, year = year_num) 
+    return render_template("year.html", data = names1, graphJSON=graphJSON, graphJSON1=graphJSON1, graphJSON2=graphJSON2, year = year_num) 
 
 #Create page for Name queries
 @app.route("/name_home/ADESUWA")
@@ -92,7 +136,7 @@ def not_found_1():
 def name(name):
    conn = engine.connect()
    baby_names = pd.read_sql("SELECT * FROM baby_names", conn)
-
+   
    baby_names_names = baby_names[baby_names['Name'] == name]
 
    if baby_names_names['Sex'].loc[baby_names_names.index[0]] == "Male":
